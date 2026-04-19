@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Due Manager - ভুলে যাওয়া স্বভাবের শেষ! আপনার সব ইভেন্ট, ছুটি, অ্যাসাইনমেন্ট এক জায়গায়।">
+    <title>Due Manager</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="resources/app_logo.webp" alt="Due Manager Logo" class="w-10 h-10 drop-shadow-md">
+                </div>
+                <h1 class="text-2xl font-bold tracking-tight text-slate-900">Due Manager</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#features" class="hover:text-red-600 transition-colors">ফিচারসমূহ</a>
+                <a href="#how-it-works" class="hover:text-red-600 transition-colors">কীভাবে কাজ করে</a>
+                <a href="#benefits" class="hover:text-red-600 transition-colors">কেন ব্যবহার করবেন</a>
+            </div>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.github.arman18.duemanager" 
+               target="_blank"
+               class="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-2xl font-semibold flex items-center gap-x-2 transition-all">
+                <i class="fab fa-google-play"></i>
+                <span class="hidden md:flex">Play Store</span>
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4">
+            <div class="flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#features" onclick="toggleMobileMenu()" class="py-2">ফিচারসমূহ</a>
+                <a href="#how-it-works" onclick="toggleMobileMenu()" class="py-2">কীভাবে কাজ করে</a>
+                <a href="#benefits" onclick="toggleMobileMenu()" class="py-2">কেন ব্যবহার করবেন</a>
+                <a href="https://play.google.com/store/apps/details?id=com.yourapp.duemanager" 
+                   target="_blank"
+                   class="bg-red-600 text-white text-center py-3 rounded-2xl font-semibold">Play Store থেকে ডাউনলোড করুন</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg pt-4 pb-4 md:h-screen md:sticky md:top-20">
+        <div class="text-justify max-w-7xl mx-auto px-6 grid md:grid-cols-[60%_40%] gap-12"> 
+            <!-- Left Content -->
+            <div class="md:space-y-10 space-y-4">
+                <h1 class="section-header text-5xl md:text-6xl font-bold leading-tight text-slate-900 text-center">
+                    ভুলে যাওয়া স্বভাবের <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-pink-600">শেষ!</span>
+                </h1>
+                
+                <p class="text-xl text-slate-700">
+                    Due Manager — আপনার ব্যক্তিগত স্মার্ট অ্যাসিস্ট্যান্ট। সব দূরের ইভেন্ট, ছুটি, অ্যাসাইনমেন্ট এক জায়গায়। প্রত্যেকটির পাশে <span class="font-semibold">কতদিন বাকি</span> দেখায়।
+                </p>
+                
+                <!-- Motivational Paragraph -->
+                <div class="bg-white rounded-3xl p-4 md:p-8 shadow-xl border border-red-100">
+                    <p class="text-slate-700 leading-relaxed text-lg">
+                        কল্পনা করুন, আপনি একদম নতুন কোনো দেশে চলে এসেছেন। সেখানকার সরকারি ছুটি কবে পড়ছে, কতদিন পর পর আসছে—কিছুই জানেন না। 
+                        অথবা আপনাকে প্রতি ৬ মাস বা ১ বছর পর পর একটা গুরুত্বপূর্ণ ওষুধ খেতে হবে, কিন্তু এত দূরের তারিখের জন্য অ্যালার্ম সেট করা যায় না। 
+                        একটা দিন মিস হলেই বড় সমস্যা।
+                    </p>
+                    <p class="text-slate-700 leading-relaxed text-lg mt-2 md:mt-5">
+                        আবার ধরুন, আপনি খুব ব্যস্ত মানুষ। এই মাসেই ১০টা জরুরি কাজ। কোনটা আগে, কোনটা পরে—সব সিরিয়ালে মনে রাখা তো প্রায় অসম্ভব। 
+                    </p>
+                    <p class="text-slate-700 leading-relaxed text-lg mt-2 md:mt-5">
+                        বন্ধুদের জন্মদিন প্রতি বছর ভুলে যান। আর সারা বছর কী কী করলেন, তার একটা সুন্দর হিসাব PDF করে প্রিন্ট করে রাখার ইচ্ছা হয়।
+                    </p>
+                    <p class="text-red-600 font-semibold mt-2 md:mt-6 text-lg">
+                        যদি এর কোনো একটা সমস্যাও আপনার জীবনে থেকে থাকে, তাহলে <span class="text-2xl">Due Manager</span> ঠিক আপনার জন্যই তৈরি করা হয়েছে।
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Right Logo + Visual -->
+            <div>
+                <div class="flex justify-center sm:pt-1  md:pt-10">
+                    <div class="logo-circle w-80 h-80 md:w-96 md:h-96 bg-white rounded-full shadow-2xl flex items-center justify-center p-8"
+                        style="position:relative;overflow: hidden;">
+                        <img src="resources/app_logo.webp" alt="Due Manager Logo" class="w-full h-full object-contain drop-shadow-2xl">
+                        <div class="inline-flex items-center gap-x-2 bg-white/70 backdrop-blur-md px-5 py-2 rounded-3xl text-red-600 font-semibold text-sm border border-red-200"
+                            style="position: absolute; bottom:20px;">
+                            <i class="fas fa-calendar-alt"></i>
+                            লং-টার্ম প্ল্যানার
+                        </div>
+                    </div>
+            
+                </div>
+                <div class="flex justify-center">
+                    <div>
+                        <div class="flex flex-wrap gap-4 pt-8">
+                            <a href="https://play.google.com/store/apps/details?id=com.github.arman18.duemanager" target="_blank"
+                                class="flex-1 md:flex-none bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-3xl font-semibold text-lg flex items-center justify-center gap-x-3 transition-all">
+                                <i class="fab fa-google-play text-xl"></i>
+                                ডাউনলোড
+                            </a>
+                            <a href="#screenshots"
+                                class="flex-1 md:flex-none border-2 border-slate-900 hover:bg-slate-900 hover:text-white px-8 py-4 rounded-3xl font-semibold text-lg flex items-center justify-center transition-all">
+                                স্ক্রিনশট →
+                            </a>
+                        </div>
+                
+                        <div class="flex items-center gap-x-6 text-sm pt-2">
+                            <div class="flex items-center gap-x-2">
+                                <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                                <div>
+                                    <p class="font-semibold">কোনো ইন্টারনেট লাগে না</p>
+                                    <p class="text-slate-500 text-xs">অফলাইন মোডে চলে</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-x-2">
+                                <i class="fas fa-lock text-red-600 text-2xl"></i>
+                                <div>
+                                    <p class="font-semibold">১০০% প্রাইভেট</p>
+                                    <p class="text-slate-500 text-xs">আপনার ডেটা কেউ দেখবে না</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-blue-100 mx-auto px-6 py-16 md:h-screen md:sticky md:top-20">
+        <div class="text-center mb-12">
+            <h2 class="section-header text-4xl font-bold mb-3">যা যা করতে পারবেন Due Manager-এ</h2>
+            <p class="text-slate-600 max-w-md mx-auto">সবকিছু এক জায়গায়। সিরিয়ালি সাজানো। প্রত্যেক ইভেন্টের পাশে কতদিন বাকি দেখায়।</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="feature-card bg-white p-8 rounded-3xl border border-slate-100">
+                <div class="text-yellow-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">📅</div>
+                <h3 class="text-2xl font-semibold mb-2">পরবর্তী ৯০ দিনের সব ইভেন্ট</h3>
+                <p class="text-slate-600">সরকারি ছুটি, ন্যাশনাল ইভেন্ট, Google Classroom অ্যাসাইনমেন্ট — সব অটো লোড হয়।</p>
+            </div>
+            
+            <div class="feature-card bg-white p-8 rounded-3xl border border-slate-100">
+                <div class="text-pink-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">🎂</div>
+                <h3 class="text-2xl font-semibold mb-2">নিজের ইভেন্ট যোগ করুন</h3>
+                <p class="text-slate-600">জন্মদিন, মেডিসিন, পরীক্ষা — যেকোনো তারিখ-সময় দিয়ে অ্যাড করুন। অটো সিরিয়ালে বসবে।</p>
+            </div>
+            
+            <div class="feature-card bg-white p-8 rounded-3xl border border-slate-100">
+                <div class="text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-3xl">📊</div>
+                <h3 class="text-2xl font-semibold mb-2">পুরো বছরের হিসাব PDF</h3>
+                <p class="text-slate-600">সারা বছর কী কী করলেন — প্রিন্ট করে রাখুন। আর্কাইভ ট্যাবে পুরনো ইভেন্টও সেভ থাকে।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Tutorial -->
+    <section id="how-it-works" class="bg-slate-900 text-white py-16 md:h-screen md:sticky md:top-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="section-header text-white text-4xl font-bold mb-3">কীভাবে কাজ করে?</h2>
+                <p class="text-slate-400">সহজ ৩ ধাপে আপনার জীবন সাজানো</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold mb-3">1️⃣ অ্যাপ খুলুন</h3>
+                    <p class="text-slate-400">Google Calendar + Google Classroom + আপনার দেশের সরকারি ছুটি অটো চলে আসবে। পরবর্তী ৯০ দিনের লিস্ট দেখুন।</p>
+                        <div class="screenshot bg-[#111827] p-3">
+                            <a href="resources/home.png" target="_blank">
+                            <img src="resources/home.png" 
+                                 alt="হোম স্ক্রিন" class="rounded-3xl w-full">
+                                 </a>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">ভালোভাবে দেখতে ছবিতে ক্লিক করুন</p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold mb-3">2️⃣ নিজের ইভেন্ট অ্যাড করুন</h3>
+                    <p class="text-slate-400">নিচের ইনপুট বক্সে লিখুন → তারিখ-সময় দিন → অটো সিরিয়ালে যোগ হয়ে যাবে।</p>
+                        <div class="screenshot bg-[#111827] p-3">
+                            <a href="resources/add_event.png" target="_blank">
+                            <img src="resources/add_event.png" 
+                                 alt="ইভেন্ট অ্যাড" class="rounded-3xl w-full">
+                                 </a>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">ভালোভাবে দেখতে ছবিতে ক্লিক করুন</p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold mb-3">3️⃣প্রস্তুতি নিন</h3>
+                    <p class="text-slate-400">প্রত্যেক ইভেন্টের পাশে কতদিন বাকি দেখুন। আর্কাইভ করুন, PDF বানান, শেয়ার করুন।</p>
+                        <div class="screenshot bg-[#111827] p-3">
+                            <a href="resources/archive.png" target="_blank">
+                            <img src="resources/archive.png" 
+                                 alt="আর্কাইভ ও PDF" class="rounded-3xl w-full">
+                                 </a>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">ভালোভাবে দেখতে ছবিতে ক্লিক করুন</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="recurring" class="mx-auto px-6 py-20 bg-white md:h-screen md:sticky md:top-20">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div>
+                <h2 class="section-header text-4xl font-bold text-center mb-12">রিকারিং ইভেন্ট</h2>
+
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                    জন্মদিন, মেডিসিন বা বার্ষিক কাজ?<br>
+                    <span class="text-red-600">আর্কাইভ না করে</span> সহজেই পরের বছরে সেট করুন
+                </h2>
+
+                <p class="text-lg text-slate-600 mb-8">
+                    প্রতি বছর একই দিনে আসে এমন ইভেন্ট (যেমন: মায়ের জন্মদিন, ৬ মাস পর পর ওষুধ, বার্ষিক চেকআপ) —
+                    আর্কাইভ করার দরকার নেই। শুধু পেন্সিল আইকনে ক্লিক করে তারিখটা পরের বছরে বদলে দিন।
+                    অ্যাপ অটোমেটিক লিস্টের নিচে সরিয়ে দেবে।
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div
+                            class="w-8 h-8 flex-shrink-0 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold">
+                            1</div>
+                        <div>
+                            <p class="font-semibold">ইভেন্টে → পেন্সিল আইকন চাপুন</p>
+                            <p class="text-slate-500 text-sm">তারিখ ও সময় সহজেই এডিট করুন</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-8 h-8 flex-shrink-0 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold">
+                            2</div>
+                        <div>
+                            <p class="font-semibold">পরের বছরের তারিখ সিলেক্ট করুন</p>
+                            <p class="text-slate-500 text-sm">অ্যাপ অটোমেটিক লিস্ট আপডেট করে নেবে</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-8 h-8 flex-shrink-0 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold">
+                            3</div>
+                        <div>
+                            <p class="font-semibold">কোনো ঝামেলা নেই</p>
+                            <p class="text-slate-500 text-sm">আর্কাইভ করতে হবে না, শুধু এডিট করলেই হয়</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Screenshot -->
+            <div>
+                <div class="screenshot mx-auto max-w-[550px]">
+                    <img src="resources/recurring.png"
+                        alt="রিকারিং ইভেন্ট এডিট" class="w-full rounded-3xl">
+                </div>
+                <p class="text-center text-slate-500 mt-4 text-sm">
+                    উদাহরণ: এ বছরের জন্মদিন শেষে পরের বছরের জন্য schedule করুন
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits -->
+    <section id="benefits" class="bg-gradient-to-br from-yellow-100 to-cyan-100 py-20 md:h-screen md:sticky md:top-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7">
+                    <h2 class="section-header text-4xl font-bold mb-8">কেন এই অ্যাপ আপনার কাজে দিতে পারে?</h2>
+                    <ul class="space-y-8">
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl text-red-500">01</span>
+                            <div>
+                                <p class="font-semibold text-xl">দূরের ইভেন্ট আর ভুলে যাবেন না</p>
+                                <p class="text-slate-600">জন্মদিন, মেডিসিন, পরীক্ষা — সব সিরিয়ালে দেখুন।</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl text-red-500">02</span>
+                            <div>
+                                <p class="font-semibold text-xl">সরকারি ছুটি অটো আসবে</p>
+                                <p class="text-slate-600">আপনি যে দেশে আছেন তার ছুটি + বাংলাদেশের ছুটি — সব একসাথে।</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl text-red-500">03</span>
+                            <div>
+                                <p class="font-semibold text-xl">Google Classroom অ্যাসাইনমেন্ট অটো লোড</p>
+                                <p class="text-slate-600">ছাত্রদের জন্য পারফেক্ট। সবকিছু এক জায়গায়।</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl text-red-500">04</span>
+                            <div>
+                                <p class="font-semibold text-xl">PDF প্রিন্ট + শেয়ার</p>
+                                <p class="text-slate-600">পুরো বছরের রিপোর্ট বের করে রাখুন বা বন্ধুদের সাথে শেয়ার করুন।</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="md:col-span-5 bg-white rounded-3xl p-8 shadow-2xl">
+                    <a href="resources/option.png" target="_blank">
+                    <img src="resources/option.png" alt="Due Manager" class="mx-auto opacity-90">
+                    <p class="text-center mt-6 text-2xl font-semibold text-slate-900">পুরো বছরের রিপোর্ট PDF প্রিন্ট</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center items-center gap-x-3 mt-10">
+            <a href="https://play.google.com/store/apps/details?id=com.github.arman18.duemanager" target="_blank"
+                class="inline-flex items-center gap-x-3 bg-white text-red-600 px-10 py-5 rounded-3xl font-bold text-xl hover:scale-105 transition-transform hover:bg-blue-100">
+                <i class="fab fa-google-play"></i>
+                Download Now
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 md:sticky md:top-0">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <nav class="flex justify-center items-center gap-x-3 mb-6">
+                <!-- YouTube -->
+                <a href="http://www.youtube.com/@csephobia" target="_blank" rel="noopener noreferrer"
+                    class="text-[#FF0000] hover:opacity-80 transition-opacity">
+                    <i class="fa-brands fa-youtube fa-2xl"></i>
+                </a>
+            
+                <!-- Facebook -->
+                <a href="https://facebook.com/csephobia" target="_blank" rel="noopener noreferrer"
+                    class="text-[#1877F2] hover:opacity-80 transition-opacity">
+                    <i class="fa-brands fa-facebook fa-2xl"></i>
+                </a>
+            
+                <!-- Instagram -->
+                <a href="https://instagram.com/csephobia" target="_blank" rel="noopener noreferrer"
+                    class="text-[#E4405F] hover:opacity-80 transition-opacity">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.github.arman18.duemanager" target="_blank" rel="noopener noreferrer"
+                    class="text-[#34A853] hover:opacity-80 transition-opacity">
+                    <i class="fa-brands fa-google-play fa-2xl"></i>
+                </a>
+            </nav>
+
+            <span style="color: red;">Never Forget to Write a Review</span>
+            <p class="text-xs mt-4">&copy; CSEPHOBIA 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // @aurthor CSEPHOBIA
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu')
+            menu.classList.toggle('hidden')
+        }
+        
+        // Smooth scroll for anchor links: CSEPHOBIA
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault()
+                    const target = document.querySelector(this.getAttribute('href'))
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        })
+                    }
+                }
+            })
+        })
+        
+    </script>
+</body>
+</html>
